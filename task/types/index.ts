@@ -23,7 +23,7 @@ export interface IUser{
     email : string;
     passwordHash : string;
     createdAt: Date;
-    updateAt: Date;
+    updatedAt: Date;
 }
 
 export interface PublicUser{

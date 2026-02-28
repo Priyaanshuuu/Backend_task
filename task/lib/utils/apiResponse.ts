@@ -14,17 +14,18 @@ export function successResponse<T>(data: T , status: number = 200) : NextRespons
 }
 
 export function errorResponse(
-    message : string,
-    status : number = 500,
+    message: string,
+    status: number = 500,
     code?: string
-) : NextResponse<ApiError>{
+): NextResponse<ApiError> {
     return NextResponse.json(
         {
-            success : false,
-            error : message,
-            ...(code && {code})
-        }
-    )
+            success: false,
+            error: message,
+            ...(code && { code })
+        },
+        { status }
+    );
 }
 
 export const unauthorized = (msg = "Unauthorized") => errorResponse(msg, 401, "UNAUTHORIZED");
